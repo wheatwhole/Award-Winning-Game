@@ -22,13 +22,17 @@ var airtime: float = 0.0
 var jumps: int = 0
 
 # dashing
-@export var dash_speed = 1000
-@export var dash_length = 0.2
-var is_dashing : bool = false
-var can_dash : bool = true
-var dash_direction : Vector2
+const DASH_SPEED: int = 500 # speed of the dash
+const END_DASH_SPEED: int = 330 # speed the player moves after the dash; momentum
 
-@onready var dash_timer = $DashTimer
+const DASH_DURATION: float = 0.25 # time in seconds for dash to last
+const DASH_PAUSE_DURATION: float = 0.25
+var dash_time = 0
+var dash_pause_time = 0
+var is_dashing: bool = false;
+var has_dashed: bool = false;
+var dash_cooldown_time = 0.0
+
 # better states
 var current_state
 var last_facing_dirx = 1  # 1 = right, -1 = left, default is right
@@ -43,14 +47,19 @@ func _ready():
 	coyote_timer.wait_time = coyote_frames / 60.0
 	animation_player.play("land")
 	change_state("IdleState")
-	
 
-func _on_dash_timer_timeout() -> void:
-	is_dashing = false # Replace with function body.
 
 	
 func _process(delta: float) -> void:	
+	get_input_axis()
+	dirx = Input.get_axis("left", "right")
+	diry = Input.get_axis("jump", "down")
 	
+	if dirx != 0:
+		last_facing_dirx = dirx
+	
+	if diry != 0:
+		last_facing_diry = diry
 	
 	if current_state:
 		current_state.handle_input(delta)
@@ -88,7 +97,11 @@ func _process(delta: float) -> void:
 		else:
 			gravity = Global.DEFAULT_GRAVITY
 			
-	velocity.y += gravity * delta
+	if !is_dashing:
+		velocity.y += gravity * delta
+		
+	if is_on_floor() && velocity.y > 0:
+		has_dashed = false
 		
 	if !player == null and Input.is_action_just_released("jump"):
 		if $RightOuter.is_colliding() and !$RightInner.is_colliding() \
@@ -149,20 +162,15 @@ func handle_landing():
 		change_state("JumpingState")
 
 		
-func get_direction_from_input():
-	var move_dir = Vector2()
-	move_dir.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
-	move_dir.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("jump"))
+func get_input_axis():
+	
+	axis = Vector2.ZERO
+	axis.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+	axis.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("jump"))
+	axis = axis.normalized()
 
-	move_dir = move_dir.limit_length(1)
-	
-	if move_dir == Vector2(0,0):
-		if(sprite_2d.flip_h):
-			move_dir.x = -1
-		else: 
-			move_dir.x = 1
-	
-	return move_dir * dash_speed
+	if not axis.x == 0 and not axis.y == 0:
+		previous_axis = axis
 	
 func _on_coyote_timer_timeout():
 	coyote = false

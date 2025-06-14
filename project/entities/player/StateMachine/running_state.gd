@@ -19,6 +19,6 @@ func handle_input(_delta):
 	if Input.is_action_just_pressed("jump") and player.jumps < 1 and player.airtime < 0.15:
 		player.change_state("JumpingState")
 
-	elif Input.is_action_just_pressed("dash") and player.can_dash and not player.is_on_floor():
+	elif Input.is_action_just_pressed("dash"):
 		player.change_state("DashingState")
 	
