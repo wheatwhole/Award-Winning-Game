@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://c5qf0cfr6rj0a"]
+
+[ext_resource type="Texture2D" uid="uid://du62alb8d5xpw" path="res://assets/Background/Water Reflect Small 01.png" id="1_3m0ri"]
+[ext_resource type="Texture2D" uid="uid://dmh5qpqsqihr3" path="res://assets/Background/Water Reflect Small 02.png" id="2_trqtd"]
+[ext_resource type="Texture2D" uid="uid://88vmng5uud2b" path="res://assets/Background/Water Reflect Small 03.png" id="3_restt"]
+[ext_resource type="Texture2D" uid="uid://dan6444h7hv6j" path="res://assets/Background/Water Reflect Small 04.png" id="4_cn4h6"]
+[ext_resource type="Texture2D" uid="uid://cukuiyom3qkbl" path="res://assets/Background/Water Reflect Medium 01.png" id="5_i6vu5"]
+[ext_resource type="Texture2D" uid="uid://cd3mngu183mt2" path="res://assets/Background/Water Reflect Medium 02.png" id="6_koymu"]
+[ext_resource type="Texture2D" uid="uid://cnsv6tyhytuli" path="res://assets/Background/Water Reflect Medium 03.png" id="7_abma5"]
+[ext_resource type="Texture2D" uid="uid://s5fn1skpdm4i" path="res://assets/Background/Water Reflect Medium 04.png" id="8_7vrfp"]
+[ext_resource type="Texture2D" uid="uid://6hal31apfcru" path="res://assets/Background/Water Reflect Big 01.png" id="9_0ksg8"]
+[ext_resource type="Texture2D" uid="uid://di78txmcq3r08" path="res://assets/Background/Water Reflect Big 02.png" id="10_fg4jo"]
+[ext_resource type="Texture2D" uid="uid://dxpc2wfl200ce" path="res://assets/Background/Water Reflect Big 03.png" id="11_p8hxl"]
+[ext_resource type="Texture2D" uid="uid://dnwy6vjpcoqyp" path="res://assets/Background/Water Reflect Big 04.png" id="12_07tpc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2333"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3m0ri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_trqtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_restt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cn4h6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6ge2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i6vu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_koymu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_abma5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7vrfp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu0so"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0ksg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fg4jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p8hxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_07tpc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="reflection" type="ParallaxLayer"]
+texture_filter = 1
+position = Vector2(143, 0)
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(903, 0)
+
+[node name="Sprite2D3" type="AnimatedSprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(106, 256)
+sprite_frames = SubResource("SpriteFrames_q2333")
+autoplay = "default"
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(105, 252)
+sprite_frames = SubResource("SpriteFrames_d6ge2")
+autoplay = "default"
+frame_progress = 0.15256
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(104, 245)
+sprite_frames = SubResource("SpriteFrames_pu0so")
+autoplay = "default"
+frame_progress = 0.768339

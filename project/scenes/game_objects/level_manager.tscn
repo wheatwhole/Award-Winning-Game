@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccvn4owdcsele"]
+
+[ext_resource type="Script" uid="uid://d1o45c21i6ico" path="res://scenes/game_objects/level_manager.gd" id="1_kostp"]
+
+[node name="Level Manager" type="Node"]
+process_mode = 3
+script = ExtResource("1_kostp")

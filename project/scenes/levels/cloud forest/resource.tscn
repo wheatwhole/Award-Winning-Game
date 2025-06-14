@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b05vdi5s0clbb"]
+
+[ext_resource type="PackedScene" uid="uid://pjmysjmcboyq" path="res://ldtk/cloud_forest_level.ldtk" id="1_eh1i0"]
+
+[node name="cloud_forest_level" instance=ExtResource("1_eh1i0")]

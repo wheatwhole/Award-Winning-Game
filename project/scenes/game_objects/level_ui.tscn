@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://w173w73pjist"]
+
+[ext_resource type="Script" uid="uid://dirnhkd473pln" path="res://scenes/game_objects/level_ui.gd" id="1_smvu4"]
+[ext_resource type="Theme" uid="uid://brrqirrrbvlpd" path="res://resources/themes/awardwinningui.tres" id="3_nem74"]
+[ext_resource type="Script" uid="uid://bp8owg3rarbwp" path="res://scenes/game_objects/points.gd" id="3_vfgjo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y85ov"]
+
+[node name="level_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_right = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_smvu4")
+metadata/_edit_use_anchors_ = true
+
+[node name="points" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 147.0
+offset_bottom = 53.0
+theme = ExtResource("3_nem74")
+theme_type_variation = &"YellowBoard"
+script = ExtResource("3_vfgjo")
+
+[node name="Label" type="Label" parent="points"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -19.5
+offset_right = 90.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_nem74")
+text = "points - 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hearts" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 14.6154
+offset_top = 54.6154
+offset_right = 70.6154
+offset_bottom = 66.6154
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y85ov")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hearts"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 1
+offset_top = 0.769231
+offset_right = 56.0
+offset_bottom = 11.7692
+
+[node name="MarginContainer" type="MarginContainer" parent="hearts/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nem74")
+theme_type_variation = &"HeartsMargin"
+
+[node name="Panel" type="Panel" parent="hearts/HBoxContainer/MarginContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(12, 9)
+layout_mode = 2
+theme = ExtResource("3_nem74")
+theme_type_variation = &"health"
+
+[node name="MarginContainer2" type="MarginContainer" parent="hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_nem74")
+theme_type_variation = &"HeartsMargin"
+
+[node name="Panel" type="Panel" parent="hearts/HBoxContainer/MarginContainer2"]
+texture_filter = 1
+custom_minimum_size = Vector2(12, 9)
+layout_mode = 2
+theme = ExtResource("3_nem74")
+theme_type_variation = &"health"
+
+[node name="MarginContainer3" type="MarginContainer" parent="hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_nem74")
+theme_type_variation = &"HeartsMargin"
+
+[node name="Panel" type="Panel" parent="hearts/HBoxContainer/MarginContainer3"]
+texture_filter = 1
+custom_minimum_size = Vector2(12, 9)
+layout_mode = 2
+theme = ExtResource("3_nem74")
+theme_type_variation = &"health"

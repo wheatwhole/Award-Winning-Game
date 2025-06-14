@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://r33o4u1axsnf"]
+
+[ext_resource type="Theme" uid="uid://brrqirrrbvlpd" path="res://resources/themes/awardwinningui.tres" id="2_dm7se"]
+
+[node name="LevelIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(8, 8)
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = -23.0
+offset_right = 25.0
+theme = ExtResource("2_dm7se")
+theme_type_variation = &"ShadedText"
+theme_override_font_sizes/font_size = 32

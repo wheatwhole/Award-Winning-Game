@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://4iyll8cohv4j"]
+
+[ext_resource type="Script" uid="uid://bpjyr2ye70b26" path="res://scenes/levels/island_select/island_icon.gd" id="1_a8lei"]
+[ext_resource type="Theme" uid="uid://brrqirrrbvlpd" path="res://resources/themes/awardwinningui.tres" id="3_qh8o3"]
+
+[node name="IslandIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("1_a8lei")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = -32.0
+offset_right = 86.0
+theme = ExtResource("3_qh8o3")
+theme_type_variation = &"ShadedText"
+theme_override_font_sizes/font_size = 32
+text = "Cloud Forest "
+vertical_alignment = 1

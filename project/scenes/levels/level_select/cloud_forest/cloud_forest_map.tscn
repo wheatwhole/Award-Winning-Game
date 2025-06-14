@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://gxf4tk02q75y"]
+
+[ext_resource type="PackedScene" uid="uid://dy5w20balilkg" path="res://ldtk/cloud_forest_map.ldtk" id="1_1bqux"]
+[ext_resource type="TileSet" uid="uid://b5peyelr3dg4o" path="res://ldtk/cloud_forest_map/tilesets/cloud_forest_map-tileset-16x16.res" id="2_7nes8"]
+
+[node name="cloud_forest_map" instance=ExtResource("1_1bqux")]
+
+[node name="Level_0-tilemap-16x16" parent="Level_0" index="0"]
+texture_filter = 1
+position = Vector2(1, 4)
+tile_set = ExtResource("2_7nes8")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://5wo4ahrx2602"]
+
+[ext_resource type="Script" uid="uid://sphgkbsapckb" path="res://scenes/main_menu/Background.gd" id="1_ayqhl"]
+[ext_resource type="Texture2D" uid="uid://dhwgmu4fasph2" path="res://assets/Background/BG Image.png" id="2_k18xk"]
+[ext_resource type="Texture2D" uid="uid://b48uou2taq6gc" path="res://assets/Background/Additional Sky.png" id="3_kvh2u"]
+[ext_resource type="Texture2D" uid="uid://dgl4o6qpxulsw" path="res://assets/Background/Additional Water.png" id="4_m6pq3"]
+[ext_resource type="Texture2D" uid="uid://cmi1i47cbnu0y" path="res://assets/Background/Big Clouds.png" id="5_rkx83"]
+[ext_resource type="PackedScene" uid="uid://bgm6ajeci7cld" path="res://scenes/main_menu/layer_3.tscn" id="6_kv2bt"]
+[ext_resource type="PackedScene" uid="uid://cujqtgkfseu4j" path="res://scenes/main_menu/layer_4.tscn" id="7_wpbsq"]
+[ext_resource type="PackedScene" uid="uid://gvpnot6hxn2y" path="res://scenes/main_menu/layer_5.tscn" id="8_07tsu"]
+[ext_resource type="PackedScene" uid="uid://c5qf0cfr6rj0a" path="res://scenes/main_menu/reflection.tscn" id="9_hoiyb"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_ayqhl")
+
+[node name="Layer1" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(143, 0)
+motion_mirroring = Vector2(903, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer1"]
+position = Vector2(311, 200)
+scale = Vector2(2.354, 1)
+texture = ExtResource("2_k18xk")
+region_rect = Rect2(100, 100, 100, 100)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Layer1"]
+position = Vector2(308, -444)
+scale = Vector2(28.2188, 36.2594)
+texture = ExtResource("3_kvh2u")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Layer1"]
+position = Vector2(311.5, 852)
+scale = Vector2(28.2188, 36.75)
+texture = ExtResource("4_m6pq3")
+
+[node name="Layer2" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(139, 0)
+motion_mirroring = Vector2(903, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer2"]
+texture_repeat = 2
+position = Vector2(86, 175)
+scale = Vector2(1.00893, 0.930693)
+texture = ExtResource("5_rkx83")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Layer2"]
+texture_repeat = 2
+position = Vector2(537, 176)
+scale = Vector2(1.00893, 0.930693)
+texture = ExtResource("5_rkx83")
+
+[node name="Layer3" parent="." instance=ExtResource("6_kv2bt")]
+position = Vector2(146, 0)
+motion_mirroring = Vector2(903, 0)
+
+[node name="Layer4" parent="." instance=ExtResource("7_wpbsq")]
+position = Vector2(248, 0)
+motion_scale = Vector2(1.4, 1)
+motion_mirroring = Vector2(903, 0)
+
+[node name="Layer5" parent="." instance=ExtResource("8_07tsu")]
+position = Vector2(184, 16)
+motion_scale = Vector2(1.2, 1)
+motion_mirroring = Vector2(903, 0)
+
+[node name="reflection" parent="." instance=ExtResource("9_hoiyb")]
+position = Vector2(24, 0)
+motion_scale = Vector2(1, 1)
+
+[node name="reflection2" parent="." instance=ExtResource("9_hoiyb")]
+position = Vector2(400, 0)
+motion_scale = Vector2(1, 1)
+
+[connection signal="draw" from="Layer1" to="." method="_on_layer_1_draw"]

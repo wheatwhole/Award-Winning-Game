@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://barnkxbg1balf"]
+
+[ext_resource type="Script" uid="uid://bb6owapcavsmc" path="res://scenes/main_menu/menucamera.gd" id="1_t6n32"]
+
+[node name="CharacterBody2D2" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.00527, 1)
+
+[node name="Camera2D" type="Camera2D" parent="CollisionShape2D"]
+position = Vector2(6.10352e-05, 0.000183105)
+scale = Vector2(1e-05, 1e-05)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("1_t6n32")
